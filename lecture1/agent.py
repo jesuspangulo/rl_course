@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class TwoArmedBandit():
     def __init__(self, alpha=1):
         self.arms = 2
@@ -16,7 +17,8 @@ class TwoArmedBandit():
         self.action = action
         self.reward = reward
         self.iteration += 1
-        self.values[action] = self.values[action] + self.alpha * (reward - self.values[action])
+        self.values[action] = self.values[action] + \
+            self.alpha * (reward - self.values[action])
 
     def get_action(self, mode):
         if mode == 'random':
