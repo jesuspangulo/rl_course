@@ -7,7 +7,7 @@ from agent import ValueIteration
 env = gym.make('FrozenLake-v2', render_mode="human")
 agent = ValueIteration(env.observation_space.n, env.action_space.n, env.P, 0.9)
 
-agent.solve(1)
+agent.solve(10000)
 agent.render()
 
 observation, info = env.reset()
@@ -19,4 +19,5 @@ while not (terminated or truncated):
     action = agent.get_action(observation)
     observation, _, terminated, truncated, _ = env.step(action)
 
+time.sleep(2)
 env.close()
