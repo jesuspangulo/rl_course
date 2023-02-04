@@ -16,14 +16,18 @@ class QLearning():
         self.state = 0
         self.action = 0
         self.next_state = 0
-        self.reward = 0        
+        self.reward = 0
         self.q_table = np.zeros((self.states_n, self.actions_n))
 
     def update(self, current_state, action, next_state, reward, terminated):
         self._update(current_state, action, next_state, reward, terminated)
-        self.q_table[current_state, action] = self.q_table[current_state, action] + self.alpha * (reward + self.gamma * np.max(self.q_table[next_state])-self.q_table[current_state, action])
+        self.q_table[current_state, action] = self.q_table[current_state, action] + self.alpha * \
+            (reward +
+             self.gamma *
+             np.max(self.q_table[next_state]) -
+             self.q_table[current_state, action])
 
-    def _update(self, current_state, action, next_state, reward, terminated):        
+    def _update(self, current_state, action, next_state, reward, terminated):
         self.iteration += 1
         self.state = current_state
         self.action = action
@@ -48,6 +52,6 @@ class QLearning():
     def render(self, mode='values'):
         if (mode == 'step'):
             print("Episode: {}, Iteration: {}, State: {}, Action: {}, Next state: {}, Reward: {}".format(
-            self.episode, self.iteration, self.state, self.action, self.next_state, self.reward))
+                self.episode, self.iteration, self.state, self.action, self.next_state, self.reward))
         elif (mode == 'values'):
             print("Q-Table: {}".format(self.q_table))
