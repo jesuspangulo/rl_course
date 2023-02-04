@@ -42,10 +42,10 @@ if __name__ == "__main__":
         gamma=0.9,
         epsilon=0.1)
 
-    train(env, agent, episodes=2)
+    train(env, agent, episodes=1000)
     agent.render()
 
-    env = gym.make(ENVIRONMENT, render_mode="human")
+    env = gym.make(ENVIRONMENT, render_mode='human')
     play(env, agent)
 
     env.close()
