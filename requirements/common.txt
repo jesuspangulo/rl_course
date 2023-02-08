@@ -1,2 +1,3 @@
+black
 gym==0.26.2
 numpy==1.23.5

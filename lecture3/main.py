@@ -10,8 +10,7 @@ def train(env, agent, episodes):
         terminated, truncated = False, False
         while not (terminated or truncated):
             action = agent.get_action(observation)
-            new_observation, reward, terminated, truncated, _ = env.step(
-                action)
+            new_observation, reward, terminated, truncated, _ = env.step(action)
             agent.update(observation, action, reward, terminated)
             observation = new_observation
 
@@ -27,12 +26,10 @@ def play(env, agent):
 
 
 if __name__ == "__main__":
-    env = gym.make('RobotMaze-v0', render_mode="human")
+    env = gym.make("RobotMaze-v0", render_mode="human")
     agent = MonteCarlo(
-        env.observation_space.n,
-        env.action_space.n,
-        gamma=0.9,
-        epsilon=0.9)
+        env.observation_space.n, env.action_space.n, gamma=0.9, epsilon=0.9
+    )
 
     train(env, agent, episodes=100)
     agent.render()
