@@ -6,6 +6,7 @@ Sample codes for a Reinforcement Learning Course
 - Lecture 2: Dynaminc Programming
 - Lecture 3: Monte Carlo Methods
 - Lecture 4: Q-learning
+- Lecture 5: Double Q-learning
 
 # Installation
 
