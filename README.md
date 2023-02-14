@@ -2,7 +2,7 @@ Sample codes for a Reinforcement Learning Course
 
 # Lectures
 
-- Lecture 1: Two-armed bandit
+- Lecture 1: Multi-armed bandit
 - Lecture 2: Dynaminc Programming
 - Lecture 3: Monte Carlo Methods
 - Lecture 4: Q-learning
@@ -11,5 +11,5 @@ Sample codes for a Reinforcement Learning Course
 # Installation
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements/production.txt
 ```
