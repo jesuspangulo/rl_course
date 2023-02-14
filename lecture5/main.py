@@ -1,4 +1,5 @@
 import sys
+import time
 import gym
 import gym_environments
 from agent import DoubleQLearning
@@ -19,14 +20,19 @@ def train(env, agent, episodes):
 def play(env, agent):
     observation, _ = env.reset()
     terminated, truncated = False, False
+
+    env.render()
+    time.sleep(2)
+
     while not (terminated or truncated):
         action = agent.get_action(observation, "greedy")
-        observation, _, terminated, truncated, _ = env.step(action)
-        env.render()
+        new_observation, reward, terminated, truncated, _ = env.step(action)
+        agent.update(observation, action, new_observation, reward, terminated)
+        observation = new_observation
 
 
 if __name__ == "__main__":
-    environments = {0: "CliffWalking-v0", 1: "Taxi-v3"}
+    environments = ["CliffWalking-v0", "Taxi-v3", "Princess-v0", "Blocks-v0"]
     id = 0 if len(sys.argv) < 2 else int(sys.argv[1])
     episodes = 10000 if len(sys.argv) < 3 else int(sys.argv[2])
 
