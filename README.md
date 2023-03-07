@@ -8,6 +8,7 @@ Sample codes for a Reinforcement Learning Course
 - Lecture 4: Q-learning
 - Lecture 5: Double Q-learning
 - Lecture 6: SARSA
+- Lecture 7: DYNA-Q
 
 # Installation
 
