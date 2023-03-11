@@ -33,7 +33,6 @@ def play(env, agent):
 
 
 if __name__ == "__main__":
-
     env = gym.make(ENVIRONMENT)
     agent = QLearning(
         env.observation_space.n, env.action_space.n, alpha=0.1, gamma=0.9, epsilon=0.1
