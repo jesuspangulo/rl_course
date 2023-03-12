@@ -9,6 +9,7 @@ Sample codes for a Reinforcement Learning Course
 - Lecture 5: Double Q-learning
 - Lecture 6: SARSA
 - Lecture 7: DYNA-Q
+- Lecture 8: Approximate Q-learning
 
 # Installation
 
