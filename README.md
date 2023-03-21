@@ -10,6 +10,7 @@ Sample codes for a Reinforcement Learning Course
 - Lecture 6: SARSA
 - Lecture 7: DYNA-Q
 - Lecture 8: Approximate Q-learning
+- Lecture 9: Semi-gradient Sarsa
 
 # Installation
 
