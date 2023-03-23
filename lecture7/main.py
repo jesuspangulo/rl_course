@@ -15,14 +15,15 @@ def run(env, agent: DYNAQ, selection_method, episodes):
         while not (terminated or truncated):
             action = agent.get_action(observation, selection_method)
             next_observation, reward, terminated, truncated, _ = env.step(action)
-            agent.update(observation, action, next_observation, reward)
+            agent.update_q(observation, action, next_observation, reward)
+            agent.update_model(observation, action, reward, next_observation)
             observation = next_observation
         if selection_method == "epsilon-greedy":
             for _ in range(100):
                 state = np.random.choice(list(agent.visited_states.keys()))
                 action = np.random.choice(agent.visited_states[state])
                 reward, next_state = agent.model[(state, action)]
-                agent.update(state, action, next_state, reward)
+                agent.update_q(state, action, next_state, reward)
 
 
 if __name__ == "__main__":

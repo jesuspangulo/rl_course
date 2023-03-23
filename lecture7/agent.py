@@ -25,13 +25,15 @@ class DYNAQ:
         self.episode += 1
         self.step = 0
 
-    def update(self, state, action, next_state, reward):
+    def update_q(self, state, action, next_state, reward):
         self._update(state, action, next_state, reward)
         self.q_table[state, action] = self.q_table[state, action] + self.alpha * (
             reward
             + self.gamma * np.max(self.q_table[next_state])
             - self.q_table[state, action]
         )
+
+    def update_model(self, state, action, reward, next_state):
         self.model[(state, action)] = (reward, next_state)
         if state in self.visited_states:
             if action not in self.visited_states[state]:
